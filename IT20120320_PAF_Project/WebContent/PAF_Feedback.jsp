@@ -12,9 +12,9 @@
 </head>
 <body>
 	<div class="container">
-			<div class="row">
+			<div class="row" style="justify-content: center;">
 				<div class="col-8">
-					<h1 class="m-3">Feedback details</h1>
+					<h1 class="m-3" style="text-align: center;font-size: 4rem;color: #800080;">Feedback details</h1>
 					
 					<form id="formFeedback" name="formFeedback">
 						<!-- NAME -->
@@ -41,7 +41,7 @@
    							<textarea class="form-control" id="F_Message" name="F_Message" rows="4"></textarea>
  						</div>
  						
-						<input id="btnSave" name="btnSave" type="button" value="Save" class="btn btn-primary"> 
+						<input id="btnSave" name="btnSave" type="button" value="Send Feedback" class="btn btn-outline-success "> 
 						<input type="hidden" id="hididSave" name="hididSave" value="">
 						
 					</form>

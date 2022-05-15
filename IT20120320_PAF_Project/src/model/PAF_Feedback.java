@@ -8,6 +8,7 @@ public class PAF_Feedback {
 	private String F_Email;
 	private String F_Message;
 	
+	//Database connection
 	private Connection connect() {
 		Connection con = null;
 		try {
@@ -19,7 +20,7 @@ public class PAF_Feedback {
 		return con;
 	}
 		
-	
+	//Feedback Reading
 	public String readFeedbacks() {
 		String output = "";
 		try {
@@ -30,8 +31,8 @@ public class PAF_Feedback {
 			
 			// Prepare the html table to be displayed
 			
-				output = "<table class='table table-hover'><tr><th>Name</th><th>Contact Number</th><th>Email</th>"
-						+ "<th>Message</th><th>Update</th><th>Remove</th></tr>";
+				output = "<table class='table table-hover'><thead class='thead-dark'><tr><th>Name</th><th>Contact Number</th><th>Email</th>"
+						+ "<th>Message</th><th>Update Feedback</th><th>Delete Feedback</th></tr></thead>";
 
 				String query = "select * from tablefeedaback";
 				Statement stmt = con.createStatement();
@@ -52,8 +53,8 @@ public class PAF_Feedback {
 					output += "<td>" + F_Message + "</td>";
 
 					// buttons
-					output += "<td><input name='btnUpdate' type='button' value='Update' class='btnUpdate btn btn-secondary'></td>"
-							+ "<td><input name='btnRemove' type='button' value='Remove' class='btnRemove btn btn-danger' data-itemid='"
+					output += "<td><input name='btnUpdate' type='button' value='Update' class='btnUpdate btn btn-outline-primary'></td>"
+							+ "<td><input name='btnRemove' type='button' value='Delete' class='btnRemove btn btn-outline-danger' data-itemid='"
 							+ F_ID + "'>" + "</td></tr>";
 				}
 				con.close();
@@ -67,6 +68,7 @@ public class PAF_Feedback {
 			return output;
 	}
 	
+	//Insert Feedbacks
 	public String insertFeedback(String F_Name, String F_ContactNo, String F_Email, String F_Message) {
 		String output = "";
 		try {
@@ -101,7 +103,7 @@ public class PAF_Feedback {
 		return output;
 	}
 		
-
+	//Update Feedbacks
 	public String updateFeedback(String F_ID,String F_Name, String F_ContactNo, String F_Email, String F_Message) {
 		String output = "";
 		try {
@@ -134,7 +136,8 @@ public class PAF_Feedback {
 		}
 		return output;
 	}
-
+	
+	//Delete Feedbacks
 	public String deleteFeedback(String F_ID) {
 		String output = "";
 		try {
